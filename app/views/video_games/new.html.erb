@@ -1,10 +1,15 @@
 <h1>Create a new video game</h1>
 
-<%= form_with(model: @video_games, url: video_games_path) do |form| %>
+<%= form_with(model: @video_game, url: video_games_path) do |form| %>
   <%= form.label :name, "Name:" %>
+  <br>
   <%= form.text_field :name %>
-  <%= form.label :name, "description:" %>
+  <br>
+  <%= form.label :name, "Description:" %>
+  <br>
   <%= form.text_area :description %>
+  <br>
   <%= form.submit "Save Video Game" %>
-  <% if @video_games.errors.any? %>
+  <% if @video_game.errors.any? %>
+  <% end %>
 <% end %>

@@ -1,7 +1,7 @@
 class VideoGamesController < ApplicationController
 
   def show
-      @video_games = VideoGame.find(params[:id])
+      @video_game = VideoGame.find(params[:id])
   end
 
   def index
@@ -9,15 +9,17 @@ class VideoGamesController < ApplicationController
   end
 
   def new
-      
+      @video_game = VideoGame.new
+  end
+
+  def edit
+      @video_game = VideoGame.find(params[:id])
   end
 
   def create
-    @video_games = VideoGame.new(name: params[:name], description: params[:description])
-    @video_games.save
-    redirect_to @video_games
-  if @video_games.save
-      flash[:notice] = "Video Game was created successfully"
+    @video_game = VideoGame.new(name: params[:name], description: params[:description], genre: params[:genre])
+    @video_game.save
+  if  flash[:notice] = "Video Game was created successfully"
       redirect_to @video_games
   else
     render 'new'
