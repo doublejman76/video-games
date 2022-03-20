@@ -1,15 +1,5 @@
-<h1>Edit Video Game</h1>
+<h1>Edit video game</h1>
 
-<% if @video_game.errors.any? %> 
-  <% @video_game.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
-  <% end %> 
-<% end %> 
+<%= render 'form' %>
 
-<%= form_with(model: @video_game, url: video_game_path) do |form| %> 
-  <%=form.label :title, "Title:" %>
-  <%= form.text_field :title %> 
-  <%= form.label :title, "description:" %> 
-  <%= form.text_area :description %> 
-  <%= form.submit "Update Video Game" %> 
-<% end %>
+<%= link_to 'Cancel and go back to book index', video_games_path %>

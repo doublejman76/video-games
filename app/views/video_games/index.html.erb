@@ -1,1 +1,26 @@
-<h1>Video Game Index page</h1>
+<h1>Video Games listing page</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @video_games.each do |video_game| %>
+      <tr>
+        <td><%= video_game.name%></td>
+        <td><%= video_game.description%></td>
+        <td><%= video_game.genre%></td>
+        <td><%= link_to 'Edit', edit_video_game_path(video_game)%></td>
+        <td><%= link_to 'Show', video_game_path(video_game)%></td>
+        <td><%= link_to 'Delete', video_game_path(video_game), method: :delete%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Create Video Game', new_video_game_path %>
