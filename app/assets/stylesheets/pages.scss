@@ -1,3 +1,40 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "bootstrap/dist/css/bootstrap";
+
+.navbar {
+    background-color: black !important ;
+}
+
+.nav-link {
+    color: white !important ;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+#jumbotron {
+    text-align: center;
+    background-image: asset-url('jumbo-copy.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: rgb(173, 235, 224);
+}
+
+#sticky-footer {
+    flex-shrink: none;
+    z-index: 1;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}

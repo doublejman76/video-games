@@ -1,6 +1,22 @@
-<p><strong>Name:</strong><%= @video_game.name %></p>
-<p><strong>Description: </strong><%= @video_game.description %></p>
-
-<%= link_to 'Edit', edit_video_game_path(@video_game)%> |
-<%= link_to 'Delete', video_game_path(@video_game), method: :delete, data: {confirm: "Are you sure"} %> |
-<%= link_to 'Return to video games page', video_games_path %>
+<h2 class="text-center mt-4"><%= @video_game.name %></h2>
+    
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            by Justin Jones
+          </div>
+          <div class="card-body">
+            <div class="card-text"><%= simple_format(@video_game.description) %></div>
+            <%= link_to "Edit", edit_video_game_path(@video_game), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", video_game_path(@video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(@video_game.created_at) %> ago,
+              edited <%= time_ago_in_words(@video_game.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
