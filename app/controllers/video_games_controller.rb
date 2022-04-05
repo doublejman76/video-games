@@ -17,6 +17,7 @@ class VideoGamesController < ApplicationController
 
   def create
     @video_game = VideoGame.new(video_games_params)
+    @video_game.user = User.first
     if @video_game.save
       flash[:notice] = "Video Game was created successfully"
       redirect_to @video_game

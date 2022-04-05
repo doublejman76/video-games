@@ -4,7 +4,7 @@ class CreateVideoGames < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :description
       t.string :genre
-
+      t.integer :user_id
       t.timestamps
     end
   end

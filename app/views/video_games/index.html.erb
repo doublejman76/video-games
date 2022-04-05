@@ -1,6 +1,13 @@
 <h1 class="text-center mt-4">Listing all video games</h1>
 
 <div class="container">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        <%= "By " + video_game.user.username if video_game.user %>
+      </div>
+    </div>
+  </div>
   <% @video_games.each do |video_game| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
