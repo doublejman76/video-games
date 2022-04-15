@@ -16,7 +16,7 @@ class VideoGamesController < ApplicationController
   end
 
   def create
-    @video_game = VideoGame.new(video_games_params)
+    @video_game = VideoGame.new(video_game_params)
     @video_game.user = User.first
     if @video_game.save
       flash[:notice] = "Video Game was created successfully"
@@ -47,7 +47,7 @@ class VideoGamesController < ApplicationController
     @video_game = VideoGame.find(params[:id])
   end
 
-  def video_games_params
+  def video_game_params
     params.require(:video_game).permit(:name, :description, :genre)
   end
 

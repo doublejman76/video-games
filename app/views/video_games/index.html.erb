@@ -3,12 +3,12 @@
 <div class="container">
   <div class="col-md-3">
     <div class="card">
-      <div class="card-header">
-        <%= "By " + video_game.user.username if video_game.user %>
+      <div class="card-header">        
       </div>
     </div>
   </div>
   <% @video_games.each do |video_game| %>
+  <%= "By " + video_game.user.username if video_game.user %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
         <div class="card text-center shadow  mb-5 bg-white rounded">
