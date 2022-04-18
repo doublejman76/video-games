@@ -4,7 +4,7 @@
         <div class="col-8 mt-4">
           <div class="card text-center shadow  mb-5 bg-white rounded">
             <div class="card-header font-italic">
-              <% if article.user %>
+              <% if video_game.user %>
                 by <%= link_to video_game.user.username, user_path(video_game.user) %>
               <% end %>
             </div>
@@ -12,6 +12,7 @@
               <h5 class="card-title text-decoration-none"><%= link_to video_game.name, video_game_path(video_game), class: "text-success" %></h5>
               <p class="card-text"><%= truncate(video_game.description, length: 100) %></p>
               <%= link_to "View", video_game_path(video_game), class: "btn btn-outline-success" %>
+              <% if logged_in? && (video_game.user == current_user || current_user.admin?) %>
                 <%= link_to "Edit", edit_video_game_path(video_game), class: "btn btn-outline-info" %>
                 <%= button_to "Delete", video_game_path(video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>

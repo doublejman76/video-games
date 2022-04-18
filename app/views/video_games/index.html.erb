@@ -1,33 +1,9 @@
-<h1 class="text-center mt-4">Listing all video games</h1>
+<h1 class="text-center mt-4">Listing all video_games</h1>
 
-<div class="container">
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-header">        
-      </div>
-    </div>
-  </div>
-  <% @video_games.each do |video_game| %>
-  <%= "By " + video_game.user.username if video_game.user %>
-    <div class="row justify-content-md-center">
-      <div class="col-8 mt-4">
-        <div class="card text-center shadow  mb-5 bg-white rounded">
-          <div class="card-header font-italic">
-            by Justin Jones
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-decoration-none"><%= link_to video_game.name, video_game_path(video_game), class: "text-success" %></h5>
-            <p class="card-text"><%= truncate(video_game.description, length: 100) %></p>
-            <%= link_to "View", video_game_path(video_game), class: "btn btn-outline-success" %>
-            <%= link_to "Edit", edit_video_game_path(video_game), class: "btn btn-outline-info" %>
-            <%= link_to "Delete", video_game_path(video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-          </div>
-          <div class="card-footer text-muted">
-            <small>Created <%= time_ago_in_words(video_game.created_at) %> ago,
-             edited <%= time_ago_in_words(video_game.updated_at) %> ago</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="flickr_pagination">
+  <%= will_paginate @video_games, :container => false %>
+</div>
+<%= render 'video_game' %>
+<div class="flickr_pagination mb-4">
+    <%= will_paginate @video_games, :container => false %>
 </div>

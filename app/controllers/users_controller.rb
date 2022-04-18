@@ -1,12 +1,14 @@
 class UsersController < ApplicationController 
-  {before_action :set_user, only: [:show, :edit, :update, :destroy]
+   before_action :set_user, only: [:show, :edit, :update, :destroy]
+   before_action :require_user, only: [:edit, :update]
+   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
-    @video_games = @user.video_games
+    @video_games = @user.video_games.paginate(page: params[:page], per_page: 5)
   end
 
   def index
-    @users = User
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -26,8 +28,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User(user_params)
+    @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "Welcome to Video Games #{@user.username}, you have successfully signed up"
       redirect_to video_games_path
     else
@@ -37,9 +40,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil if @user == current_user
+    session[:user_id] = nil
     flash[:notice] = "Account and all saved games will be deleted"
-    return_to video_games_path
+    redirect_to video_games_path
   end
 
   private
@@ -51,4 +54,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-end}
+  def require_same_user
+    if current_user !=@user && !current_user.admin?
+      flash[:alert] = "You can only edit or delete your own account"
+      redirect_to @user
+    end
+  end
+
+end
