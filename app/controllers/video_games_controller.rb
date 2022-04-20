@@ -21,7 +21,7 @@ class VideoGamesController < ApplicationController
     @video_game = VideoGame.new(video_game_params)
     @video_game.user = current_user
     if @video_game.save
-      flash[:notice] = "Video Game was created successfully"
+      flash[:notice] = "Arcade machine was added successfully"
       redirect_to @video_game
     else
       render'new'

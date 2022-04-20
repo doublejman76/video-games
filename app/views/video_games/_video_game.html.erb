@@ -10,7 +10,7 @@
               <%= link_to "View", video_game_path(video_game), class: "btn btn-outline-success" %>
               <% if logged_in? && (video_game.user == current_user || current_user.admin?) %>
                 <%= link_to "Edit", edit_video_game_path(video_game), class: "btn btn-outline-info" %>
-                <%= button_to "Delete", video_game_path(video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                <%= link_to "Delete", video_game_path(video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
             </div>
             <div class="card-footer text-muted">
