@@ -4,11 +4,11 @@ class UsersController < ApplicationController
    before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
-    @video_games = @user.video_games.paginate(page: params[:page], per_page: 5)
+    @video_games = @user.video_games.paginate(page: params[:page], per_page: 8)
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.paginate(page: params[:page], per_page: 8)
   end
 
   def new
