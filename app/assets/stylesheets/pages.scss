@@ -1,12 +1,13 @@
 
 
 .navbar {
-    background-color: silver !important;
+    background-color: grey !important;
 }
 
 .nav-link {
-    color: grey !important;
+    color: rgb(255, 234, 0) !important;
 }
+
 
 #home-container {
   margin-top: 25px;
@@ -15,16 +16,16 @@
 #logo {
   float: left;
   font-size: 1.9em;
-  color:rgb(233, 210, 180)
+  color: rgb(255, 234, 0)
   text-transform uppercase;
 }
 
 #jumbotron {
-    color: white;
+    color: rgb(238, 91, 221);
     font-size: 25px;
     text-align: center;
-    background-image: asset-url('jumbo-copy.jpeg');
-    background-position: center center;
+    background-image: asset-url('retro-arcade.jpeg');
+    background-position: center absolute;
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
@@ -37,7 +38,12 @@ body {
 
 #page-content {
   flex: 1 0 auto;
-  background-color: rgb(245, 154, 34);
+  background-image: asset-url('ms-pac-man.jpeg');
+  background-color: rgb(32, 177, 255);
+  background-position: center absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 1200px;
 }
 
 #sticky-footer {
@@ -47,5 +53,19 @@ body {
     bottom: 0px;
     width: 100%;
 }
+
+.text-center {
+  color: rgb(255, 251, 4);
+}
+
+.title {
+  color: yellow;
+}
+
+.font-family {
+  style: 'Righteous', cursive;
+}
+
+
 
 
