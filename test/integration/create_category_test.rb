@@ -5,19 +5,19 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     get "/categories/new"
     assert_response :success
     assert_difference 'Category.count', 1 do
-        post categories_path, params: { category: { name: "Arcade"} }
+        post categories_path, params: { category: { name: "Arcade Classics"} }
         assert_response :redirect
     end
     follow_redirect!
     assert_response :success
-    assert_match "Arcade", response.body
+    assert_match "Arcade Classics", response.body
   end
 
-  test "get new category form reject invalid and category submission" do
+  test "get new category form and reject invalid category submission" do
     get "/categories/new"
     assert_response :success
     assert_no_difference 'Category.count' do
-        post categories_path, params: { category: { name: " "} }
+      post categories_path, params: { category: { name: " "} }
     end
     assert_match "errors", response.body
     assert_select 'div.alert'

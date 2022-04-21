@@ -2,8 +2,8 @@ require 'test_helper'
 
 class ListCategoriesTest < ActionDispatch::IntegrationTest
   def setup
-    @category = Category.create(name: "Arcade")
-    @category2 = Category.create(name: "Fighting")
+    @category = Category.create(name: "Arcade Classics")
+    @category2 = Category.create(name: "Fighting Classics")
   end
 
   test "should show categories listing" do
