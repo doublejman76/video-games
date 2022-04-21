@@ -7,7 +7,7 @@ class VideoGamesController < ApplicationController
   end
 
   def index
-      @video_games = VideoGame.paginate(page: params[:page], per_page: 8)
+      @video_games = VideoGame.paginate(page: params[:page], per_page: 8).order(:name)
   end
 
   def new

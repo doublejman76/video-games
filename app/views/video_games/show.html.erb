@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="card-text"><%= simple_format(@video_game.description) %></div>
-            <%= link_to "Edit", edit_video_game_path(@video_game), class: "btn btn-outline-info" %>
+            <%= link_to "Edit", edit_video_game_path(@video_game), class: "btn btn-outline-light" %>
             <%= link_to "Delete", video_game_path(@video_game), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
           <div class="card-footer text-muted">
