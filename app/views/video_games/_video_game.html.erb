@@ -3,7 +3,7 @@
         <% @video_games.each do |video_game| %>
         <div class="col-3 mt-4">
           <div class="card text-center shadow mb-5 rounded custom-bg-dark ">
-            <img src="https://mario.wiki.gallery/images/thumb/e/e0/Donkey_Kong_Arcade_side_art.png/375px-Donkey_Kong_Arcade_side_art.png" class="card-img-top" alt="...">
+            <%= image_tag video_game.image_path, class: "card-img-top" %>
             <div class="card-body">
               <h5 class="card-title text-decoration-none"><%= link_to video_game.name, video_game_path(video_game), class: "text-success" %></h5>
               <p class="card-text"><%= truncate(video_game.description, length: 100) %></p>
