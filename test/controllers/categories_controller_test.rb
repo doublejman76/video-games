@@ -19,9 +19,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create category" do
-    sign_is_as(@admin_user)
+    sign_in_as(@admin_user)
     assert_difference('Category.count', 1) do
-      post categories_url, params: { category: { name: "Arcade Classics" } }
+      post categories_url, params: { category: { name: "Fighting Classics" } }
     end
 
     assert_redirected_to category_url(Category.last)
@@ -32,7 +32,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
       post categories_url, params: { category: { name: "Arcade Classics" } }
     end
 
-    assert_redirected_to category_url
+    assert_redirected_to categories_url
   end
 
   test "should show category" do

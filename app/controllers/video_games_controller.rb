@@ -50,7 +50,7 @@ class VideoGamesController < ApplicationController
   end
 
   def video_game_params
-    params.require(:video_game).permit(:name, :description, :image_path)
+    params.require(:video_game).permit(:name, :description, :image_path, category_ids: [])
   end
 
   def require_same_user
